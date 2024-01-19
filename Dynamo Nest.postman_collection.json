@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "c8cfec71-9adc-4650-bef3-2e7515724afc",
+		"name": "Dynamo Nest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20369941"
+	},
+	"item": [
+		{
+			"name": "Get Tournament By Id",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/tournament/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tournament",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Tournament",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const map = new Map()\r",
+							"\r",
+							"map.set(1,1000)\r",
+							"map.set(2,500)\r",
+							"map.set(3,100)\r",
+							"\r",
+							"pm.environment.set(\"mapa\",JSON.stringify(Object.fromEntries(map)));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tournamentId\":\"1\",\r\n    \"accessPrice\":1,\r\n    \"rewardsByRanking\":{{mapa}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/tournament/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tournament",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Tournamentstatus",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const map = new Map()\r",
+							"\r",
+							"map.set(1,1000)\r",
+							"map.set(2,500)\r",
+							"map.set(3,100)\r",
+							"\r",
+							"pm.environment.set(\"mapa\",JSON.stringify(Object.fromEntries(map)));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tournamentId\":\"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/tournament/status/running",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tournament",
+						"status",
+						"running"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Participation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tournamentId\":\"2\",\r\n    \"userEmail\":\"ramsesdma@gmail.com\",\r\n    \"wallet\":\"0xc1549c86ccc9786a0002d5132f96f9a8f89b71d1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/participation/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"participation",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
